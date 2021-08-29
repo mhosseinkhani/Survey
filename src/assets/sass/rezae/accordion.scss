@@ -1,0 +1,29 @@
+// agreement form -> panel -> double chevron down svg
+.accordion {
+  // start : accordion card
+  .card {
+    // start : accordion card header
+    .card-header {
+      // start : accordion toggler button
+      .btn-link {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  &.panel-show {
+    .card {
+      // start : accordion card header
+      .card-header {
+        // start : accordion toggler button
+        .btn-link {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+ 
+}

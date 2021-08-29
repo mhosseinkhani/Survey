@@ -1,0 +1,75 @@
+.modal {
+  &.show {
+    .modal-dialog {
+      &.modal-xl {
+        margin: 0;
+        max-height: 100%;
+        max-width: 100%;
+      }
+
+      &.modal-lg {
+        max-width: 1200px;
+      }
+
+      &.modal-lg,
+      &.modal-sm {
+        .modal-content {
+          height: auto !important;
+        }
+      }
+
+      .modal-content {
+        height: 100%;
+
+        .component-host-scrollable {
+          height: 100%;
+
+          .modal-body {
+            height: 100%;
+
+            .accordion {
+              display: flex;
+              flex-direction: column;
+              flex: 1;
+              height: 100%;
+
+              .card {
+                // &:first-child {
+                //   flex: 1;
+                // }
+
+                .collapse.show {
+                  flex: 1;
+                  .card-body {
+                    flex: 1;
+                    height: 100%;
+
+                    setup {
+                      height: 100%;
+                      flex: 1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @media (min-width: 576px) {
+        &.modal-sm {
+          max-width: 600px;
+          margin: 1.75rem auto;
+          max-height: none;
+          height: auto;
+        }
+
+        &.modal-md {
+          max-width: 900px;
+          margin: 1.75rem auto;
+          max-height: calc(100% - 3.5rem);
+        }
+      }
+    }
+  }
+}

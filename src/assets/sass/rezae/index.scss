@@ -1,0 +1,39 @@
+@import "accordion.scss";
+@import "modal.scss";
+@import "sensitive-events.scss";
+@import "./kendo.scss";
+
+
+// #region hide input value arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+// #endregion
+
+.presentation-mode-switcher {
+  text-align: left;
+  margin-bottom: 4em;
+
+  .btn {
+    &.active {
+      background-color: #ddd;
+    }
+  }
+}
+
+.fa.fa-protest {
+  background-image: url('../../media/new-front/protest.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 2em;
+  height: 1.7em;
+}

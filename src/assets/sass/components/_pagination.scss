@@ -1,0 +1,111 @@
+//
+// Pagination
+//
+
+.pagination {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  .page-item {
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0;
+    height: calc(1.5em + 1.3rem + 2px);
+    width: calc(1.5em + 1.3rem + 2px);
+    margin: auto 5px;
+    // background-color: #fff;
+
+    &:nth-last-child(2),
+    &:nth-last-child(1),
+    &:nth-child(1),
+    &:nth-child(2) {
+      .page-link {
+        color: #3699ff;
+        background-color: #e1f0ff;
+        background-color: #c0dfff;
+        background-color: #fff;
+
+        span {
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        &:hover {
+          border-color: #3699ff;
+          background-color: #e1f0ff;
+          background-color: #c0dfff;
+        }
+      }
+    }
+
+    &:nth-child(2)::after {
+      content: "";
+      background-image: url("../../../assets/media/svg/icons/left-arrow.svg");
+      background-size: contain;
+      position: absolute;
+      width: 0.7em;
+      height: 0.7em;
+      transform: rotate(180deg);
+      z-index: 999;
+    }
+    &:nth-child(1)::after {
+      content: "";
+      background-image: url("../../../assets/media/svg/icons/chevron.svg");
+      background-size: contain;
+      position: absolute;
+      width: 0.7em;
+      height: 0.7em;
+      z-index: 999;
+    }
+
+    &:nth-last-child(2)::after {
+      content: "";
+      background-image: url("../../../assets/media/svg/icons/left-arrow.svg");
+      background-size: contain;
+      position: absolute;
+      width: 0.7em;
+      height: 0.7em;
+      z-index: 999;
+    }
+    &:nth-last-child(1)::after {
+      content: "";
+      background-image: url("../../../assets/media/svg/icons/chevron.svg");
+      background-size: contain;
+      position: absolute;
+      width: 0.7em;
+      height: 0.7em;
+      transform: rotate(180deg);
+      z-index: 999;
+    }
+
+    .page-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.6rem;
+      border-radius: 0 !important;
+
+      &.active,
+      &:hover,
+      &:focus {
+        background-color: #3699ff;
+        color: #fff;
+        border: 1px solid #3699ff;
+      }
+    }
+  }
+}
+.pagination-select-rows {
+  width: 7.5em;
+  background-color: #c0dfff;
+  background-color: #fff;
+}

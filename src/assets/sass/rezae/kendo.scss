@@ -1,0 +1,67 @@
+.k-grid {
+  td {
+    border-width: 0 !important;
+    text-align: center;
+  }
+
+  th {
+    border-width: 0 !important;
+    text-align: center;
+  }
+
+  .k-grid-header {
+    border-bottom-width: 0 !important;
+  }
+
+  .k-cell-inner > .k-link {
+    justify-content: center;
+  }
+
+  .k-column-title {
+    font-family: "_medium";
+    font-size: 1.5rem;
+    white-space: normal;
+  }
+
+  .k-grid[dir="rtl"] th, .k-rtl .k-grid th {
+    white-space: normal;
+  }
+
+  .btn {
+    &:hover,
+    &:focus {
+      background-color: #ddd;
+    }
+  }
+
+  .k-dropdown .k-dropdown-wrap {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.k-command-cell {
+  .custom-switch .custom-control-label:before {
+    width: 3.05rem;
+    height: 1.5rem;
+  }
+
+  .custom-switch .custom-control-label:after {
+    width: calc(1.5rem - 4px);
+    height: calc(1.5rem - 4px);
+  }
+
+  .custom-switch .custom-control-input:checked ~ .custom-control-label:after {
+    transform: translateX(-1.45rem);
+  }
+
+  .btn {
+    i {
+      &::before {
+        font-size: 1.5rem;
+        color: #888;
+      }
+    }
+  }
+}
+

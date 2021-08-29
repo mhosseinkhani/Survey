@@ -1,0 +1,62 @@
+<div class="wrapper">
+    <main class="container">
+        <div class="row h-100">
+            <div class="col-md-4 login-conainer">
+                <div class="form">
+                    <img class="logo" src="/assets/media/logos/light-logo-type.svg" alt="" />
+                    <form [formGroup]="loginForm" autocomplete="off" novalidate="novalidate">
+                        <input name="__RequestVerificationToken" type="hidden" value="" />
+                        <div class="form-group">
+                            <i class="fa fa-user"></i>
+                            <input formControlName="username" type="text" class="form-control" name="username" id="username" placeholder="{{ 'AUTH.INPUT.USERNAME' | translate }}" />
+                        </div>
+                        <div class="form-group">
+                            <i class="fa fa-lock"></i>
+                            <input formControlName="password" class="form-control" type="password" name="password" id="password" placeholder="{{ 'AUTH.INPUT.PASSWORD' | translate }}" />
+                        </div>
+                        <div class="captcha-container"></div>
+                        <button [disabled]="loading" (click)="submit()" class="login-btn" type="submit" id="btn_lgin">
+                <span *ngIf="!loading" id="login-btn-text">{{
+                  "AUTH.LOGIN.BUTTON" | translate
+                }}</span>
+                <span
+                  class="loadingSpinner"
+                  [ngClass]="{ 'd-inline-block': loading }"
+                ></span>
+              </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-8 company-container">
+                <span class="version">
+            <div class="copyright">
+              <a href="http://simorgh34000.com/" target="_blank"
+                >www.simorgh34000.com</a
+              >
+              <br />
+              <span> Copyright © Simorgh34000 Co. All rights reserved. </span>
+                <br />
+                <span> 1.0.5.26 </span>
+            </div>
+            <div>
+                <img class="footer-logo" src="/assets/media/logos/logo.png" alt="Alternate Text" />
+            </div>
+            </span>
+            <div class="company-content-wrapper">
+                <img src="/assets/media/logos/logo-with-text.png" alt="logo" class="company-logo" />
+                <h1 class="company-title mb-5">سیستم‌های منابع انسانی سیمرغ</h1>
+                <div class="contents">
+                    <!-- <img
+                class="size-80-percent"
+                src="/assets/media/other/login.png"
+                alt="logo"
+              /> -->
+
+                    <img class="size-80-percent" src="../../../../assets/media/other/intro-image.svg" alt="logo" />
+                </div>
+            </div>
+        </div>
+</div>
+</main>
+</div>

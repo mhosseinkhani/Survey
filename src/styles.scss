@@ -1,0 +1,642 @@
+/* You can add global styles to this file, and also import other style files */
+// Global vendors
+// @import "~bootstrap/dist/css/bootstrap.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "~@angular/cdk/overlay-prebuilt.css";
+// Global fonts
+@import "~socicon/css/socicon.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "./assets/plugins/flaticon/flaticon.css";
+@import "./assets/plugins/flaticon2/flaticon.css";
+@import "./assets/plugins/keenthemes-icons/font/ki.css";
+// @import "./assets/plugins/iranYekan/iranyekan.css";
+@import "./assets/plugins/iran-sans/iran-sans.css";
+
+//   styles
+@import "./assets/sass/style.angular.scss";
+@import "~animate.css/animate.css";
+// @import "./assets/sass/vendors/angular/material/angular-material";
+// @import "./assets/sass/vendors/angular/material/include";
+
+// Default Layout themes
+@import "./assets/sass/themes/layout/header/base/light.scss";
+@import "./assets/sass/themes/layout/header/menu/light.scss";
+@import "./assets/sass/themes/layout/brand/dark.scss";
+@import "./assets/sass/themes/layout/aside/dark.scss";
+@import "node_modules/@progress/kendo-theme-default/scss/grid/_index.scss";
+
+//toastr
+@import "~ngx-toastr/toastr";
+// @import '~ngx-toastr/toastr-bs4-alert';
+
+// Header themes
+// .header-base-light {
+//     @import "./assets/sass/themes/layout/header/base/light.scss";
+// }
+
+// .header-base-dark {
+//     @import "./assets/sass/themes/layout/header/base/dark.scss";
+// }
+
+// Header Menu themes
+// .header-menu-light {
+//     @import "./assets/sass/themes/layout/header/menu/light.scss";
+// }
+// .header-menu-dark {
+//     @import "./assets/sass/themes/layout/header/menu/dark.scss";
+// }
+
+:root {
+  --c-red: #e8523a;
+  --c-blue: #3699ff;
+  --c-red-2: #f96f59;
+  --c-orange: #fbcb5e;
+  --c-green: #16c85d;
+  --c-gray-1: #707070;
+  --c-btn-light: #c0dfff;
+
+  --c-boxShadow: 0 2px 8px 0 #c9c9c9;
+  --c-transition-all: all 0.3s;
+}
+.tooltip{
+  font-size: 1.4rem !important;
+}
+.scrollbar{
+  &::-webkit-scrollbar {
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+html {
+  background: #fff;
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+.cdk-overlay-container {
+  z-index: 2000 !important; //higher then fixed header z-index so it comes above
+}
+// Brand themes
+
+.brand-dark {
+  @import "./assets/sass/themes/layout/brand/dark.scss";
+}
+
+.brand-light {
+  @import "./assets/sass/themes/layout/brand/light.scss";
+}
+.form-group{
+  position: relative;
+}
+// .footer {
+//   position: absolute;
+//   bottom: 0;
+//   z-index: 99;
+//   right: 0;
+//   left: 0;
+// }
+.full-height-dialog {
+  height: 100% !important;
+  overflow: hidden;
+  .modal-content {
+    height: 100%;
+  }
+  .modal-body {
+    overflow-y: scroll;
+    height: 100%;
+  }
+}
+.mat-table__wrapper {
+  position: relative;
+
+  .loading-shade {
+    position: absolute;
+    text-align: center;
+    padding: 17% 43% 0 0;
+    width: 100%;
+    height: 100%;
+    background: #4a4a4a40;
+    z-index: 1;
+  }
+}
+
+// Aside themes
+// .aside-dark {
+//   @import "./assets/sass/themes/layout/aside/dark.scss";
+// }
+
+// .aside-light {
+//   @import "./assets/sass/themes/layout/aside/light.scss";
+// }
+
+//hide bootstrap dropdown arrow globally
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.mat-table-wrapper-dashboard .mat-table {
+  min-width: 600px !important;
+  width: 100% !important;
+}
+
+.position-static {
+  position: static;
+}
+
+.dropdown-fluid {
+  height: 100%;
+
+  .topbar-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+.error-label {
+  position: absolute;
+  padding: 6px 6px 3px 6px;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  color: red;
+  font-size: 1.4rem;
+  i{
+    font-size: 16px;
+    color: red;
+  }
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+// datepicker styles
+.ngb-dp-weekdays {
+  font-size: 18px !important;
+}
+
+.ngb-dp-week {
+  padding: 2px !important;
+}
+
+.ngb-dp-month:first-child .ngb-dp-week {
+  padding-top: 2px !important;
+}
+
+.ngb-dp-day,
+.ngb-dp-week-number,
+.ngb-dp-weekday {
+  width: 2.8rem !important;
+  height: 2.5rem !important;
+}
+
+[ngbDatepickerDayView] {
+  text-align: center !important;
+  width: 2.8rem !important;
+  height: 2.8rem !important;
+  line-height: 2.8rem !important;
+  border-radius: 0.25rem !important;
+}
+
+ngb-datepicker-month {
+  display: block !important;
+  padding: 10px !important;
+}
+
+.ngb-dp-week-number,
+.ngb-dp-weekday {
+  font-style: normal !important;
+}
+
+ngb-datepicker-navigation-select > .custom-select {
+  padding: 0 0.5rem !important;
+  font-size: 1.4rem !important;
+  height: 2.5rem !important;
+}
+
+ngb-datepicker-navigation-select > .custom-select:first-child {
+  margin-left: 6px !important;
+}
+
+.ngb-dp-header {
+  background-color: white !important;
+  margin-top: 6px !important;
+}
+
+.ngb-dp-day {
+  font-size: 16px;
+}
+
+.ngb-dp-weekday {
+  color: #00898a !important;
+}
+
+.ngb-dp-navigation-chevron {
+  color: darkcyan !important;
+  -webkit-transform: rotate(45deg) !important;
+  transform: rotate(45deg) !important;
+}
+
+.right .ngb-dp-navigation-chevron {
+  color: darkcyan !important;
+  -webkit-transform: rotate(-135deg) !important;
+  transform: rotate(-135deg) !important;
+}
+
+textarea {
+  font-size: 1.4rem;
+  padding: 0.5em;
+  &[disabled] {
+    overflow: hidden;
+  }
+}
+
+// sidebar
+.brand {
+  // background-color: #1a1a27;
+}
+
+.aside-menu-wrapper {
+  // background: silver;
+  background-color: white;
+}
+
+.aside-menu {
+  background: transparent;
+  color: #7d7d7e;
+}
+
+// .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-icon, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-icon {
+//     color: #7D7D7E;
+// }
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading,
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+  background-color: white;
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-open > .menu-heading,
+.aside-menu .menu-nav > .menu-item.menu-item-open > .menu-link {
+  background-color: white;
+  color: #7d7d7e;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-heading,
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-link {
+  // background-color: #1b1b28;
+  background-color: white;
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav .menu-item.menu-item-open > .menu-inner,
+.aside-menu .menu-nav .menu-item.menu-item-open > .menu-submenu {
+  background-color: white;
+  color: #7d7d7e;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-heading,
+.aside-menu
+  .menu-nav
+  > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-link {
+  // background-color: #1b1b28;
+  background-color: white;
+  color: #7d7d7e;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-heading,
+.aside-menu
+  .menu-nav
+  > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-link {
+  // background-color: #1b1b28;
+  background-color: white;
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-here > .menu-heading,
+.aside-menu .menu-nav > .menu-item.menu-item-here > .menu-link {
+  background-color: white;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item
+  > .menu-heading
+  .menu-text,
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item
+  > .menu-link
+  .menu-text {
+  // color: #9899ac;
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-icon,
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-icon {
+  // color: #3699FF;
+  color: #7d7d7e;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-heading
+  .menu-bullet.menu-bullet-dot
+  > span,
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-link
+  .menu-bullet.menu-bullet-dot
+  > span {
+  // background-color: #3699FF;
+  background-color: white;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item
+  > .menu-heading
+  .menu-bullet.menu-bullet-dot
+  > span,
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item
+  > .menu-link
+  .menu-bullet.menu-bullet-dot
+  > span {
+  background-color: white;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-text,
+.aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
+  // color: #a2a3b7;
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav .menu-subnav {
+  border-top: solid 4px white;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-icon,
+.aside-menu .menu-nav > .menu-item > .menu-link .menu-icon {
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav > .menu-item.menu-item-open > .menu-heading .menu-icon,
+.aside-menu .menu-nav > .menu-item.menu-item-open > .menu-link .menu-icon {
+  color: #7d7d7e;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-heading
+  .menu-icon,
+.aside-menu
+  .menu-nav
+  > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover
+  > .menu-link
+  .menu-icon {
+  // color: #3699FF;
+  color: #7d7d7e;
+}
+
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item.menu-item-active
+  > .menu-heading,
+.aside-menu
+  .menu-nav
+  > .menu-item
+  .menu-submenu
+  .menu-item.menu-item-active
+  > .menu-link {
+  // background-color: #1b1b28;
+  background-color: white;
+}
+
+.aside-minimize .aside-menu .menu-nav > .menu-item > .menu-link > .menu-icon {
+  color: #7d7d7e;
+}
+
+.aside-minimize
+  .aside-menu
+  .menu-nav
+  > .menu-item.menu-item-here
+  > .menu-link
+  > .menu-icon,
+.aside-minimize
+  .aside-menu
+  .menu-nav
+  > .menu-item.menu-item-active
+  > .menu-link
+  > .menu-icon {
+  // color: #3699FF;
+  color: #7d7d7e;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-arrow,
+.aside-menu .menu-nav > .menu-item > .menu-link .menu-arrow {
+  color: #7d7d7e !important;
+}
+
+.brand .btn .svg-icon svg g:last-of-type [fill] {
+  fill: #d6d7e9 !important;
+}
+
+.brand .btn .svg-icon svg g:first-of-type [fill] {
+  fill: white !important;
+}
+
+.brand .btn .svg-icon svg b:hover g:first-of-type [fill] {
+  fill: #2f3c98 !important;
+}
+
+.brand .btn .svg-icon svg:hover g:last-of-type [fill] {
+  fill: white !important;
+}
+
+span.k-i-none,
+span.k-i-collapse,
+span.k-i-expand {
+  transform: scaleX(1) !important;
+  line-height: 3;
+}
+
+span.k-i-none::before,
+span.k-i-collapse:before,
+span.k-i-expand:before {
+  background: #cccccc;
+  height: 46px;
+  margin: -17px 0px;
+  width: 1px;
+  display: block;
+}
+
+span.k-i-none::before {
+  margin: -23px 0px;
+}
+
+span.k-i-none {
+  height: 3px;
+  width: 30px;
+}
+
+span.k-i-none:last-child {
+  border-bottom: solid 1px #cccccc;
+  margin-left: 3px;
+  width: 13px;
+}
+
+.k-i-expand::before {
+  content: "\e007" !important;
+}
+
+.btn-sm {
+  font-size: 18px !important;
+}
+
+.k-grid-content {
+  overflow-y: auto;
+}
+kendo-grid.k-widget.k-grid {
+  min-height: 65vh;
+}
+
+.k-grid-header {
+  padding: 0 !important;
+}
+
+.k-filtercell-operator {
+  display: none;
+}
+//.k-dropdown-operator { display: none;}
+
+.rtl {
+  ngx-treeview {
+    .treeview-item .treeview-item {
+      margin-right: 2rem !important;
+      margin-left: 0.7rem !important;
+    }
+    .row-all .col-12 {
+      text-align: right;
+      .pull-right {
+        float: left !important;
+      }
+    }
+    .form-check.form-check-inline {
+      margin-right: 0rem !important;
+    }
+    .btn.dropdown-toggle {
+      margin-right: 0rem !important;
+    }
+    .dropdown-menu {
+      right: 0px;
+      left: unset;
+    }
+    ngx-treeview-item {
+      text-align: right;
+      direction: rtl;
+    }
+    @media (min-width: 576px) {
+      .form-inline .form-check-input {
+        margin: 3px;
+      }
+    }
+    .form-inline .form-check-input {
+      margin: 3px;
+      position: inherit;
+    }
+    .dropdown button {
+      text-align: right !important;
+      direction: rtl;
+    }
+    .fa.fa-caret-right {
+      transform: rotate(180deg);
+    }
+    .bi.bi-caret-right-fill {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+//@media (min-width: 576px) {
+
+//}
+//
+///* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+//@media (min-width: 768px) {
+//  body{
+//    font-size:1.4rem;
+//  }
+//}
+//
+///* Large devices (desktops, 992px and up) */
+//@media (min-width: 992px) {
+//  body{
+//    font-size:1.4rem;
+//  }
+//}
+//
+///* Extra large devices (large desktops, 1200px and up) */
+//@media (min-width: 1200px) {
+//  body{
+//    font-size:1.4rem;
+//  }
+//}
+
+@import "./assets/sass/rezae/index.scss";

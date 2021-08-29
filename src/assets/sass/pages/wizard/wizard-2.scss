@@ -1,0 +1,193 @@
+//
+// Wizard 2
+// Pages SASS files are compiled into separate css files
+//
+
+// Initialization of global variables, mixins and functions
+@import "../../init";
+
+// Variables
+$wizard-nav-width: 5em;
+$wizard-nav-width-sm: 5em;
+
+// Base
+.wizard.wizard-2.vertical {
+  display: flex;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    border-top: 1px solid var(--c-blue);
+    position: absolute;
+    bottom: 5.6em;
+  }
+
+  // Nav
+  .wizard-nav {
+    padding: 0;
+    flex: 0 0 $wizard-nav-width;
+    width: $wizard-nav-width;
+    max-width: 100%;
+    padding-bottom: 6em;
+
+    // Steps
+    .wizard-steps {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 100%;
+
+      // Step
+      .wizard-step-wrapper {
+        // flex: 1;
+        // height: 100%;
+        position: relative;
+        margin: 0.5em 0;
+
+        .wizard-step {
+          background-color: #eeeeee;
+          font-family: _medium;
+          box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.16);
+
+          position: relative;
+          transition: $transition-link;
+          min-width: 5em;
+          height: 5em;
+          border-radius: 50%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .wizard-text {
+            font-size: 1.1rem;
+            font-family: _bold;
+            margin-right: 0;
+            transition: $transition-link;
+            color: #707070;
+            margin: 0;
+
+            //   i {
+            //     color: $text-muted;
+            //   }
+
+            //   .svg-icon {
+            //     @include svg-icon-color($text-muted);
+            //   }
+          }
+
+          .wizard-arrow {
+            color: $dark-50;
+            font-size: 1.25rem;
+
+            &.last {
+              display: none;
+            }
+          }
+
+          i {
+            display: none;
+            color: #fff;
+            font-size: 1.9rem;
+          }
+        }
+
+        &[data-wizard-state="current"] {
+          flex: 1;
+
+          .wizard-step {
+            background-color: #16c85d;
+            transition: $transition-link;
+            border: 2px solid #f7f7f7;
+            .wizard-text {
+              color: #fff;
+            }
+
+            &:after {
+              position: absolute;
+              content: " ";
+              display: block;
+
+              height: calc(100% + 1em);
+              width: calc(100% + 1em);
+              border-radius: 50%;
+              border: 2px dotted #16c85d;
+            }
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            border-left: 2px dotted #707070;
+            top: calc(0px + 6em);
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            transform: translateX(50%);
+          }
+        }
+
+        &[data-wizard-state="done"] {
+          .wizard-step {
+            background-color: #16c85d;
+            transition: $transition-link;
+            border: 2px solid #16c85d;
+            .wizard-text {
+              display: none;
+            }
+
+            i {
+              display: inline-block;
+            }
+          }
+        }
+
+        &:last-child::after {
+          content: "";
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Body
+  .wizard-body {
+    width: 100%;
+
+    .step-number {
+      color: #3699ff;
+      padding: 0.7em 0;
+      font-size: 2.3rem;
+      font-family: _medium;
+      border-bottom: 2px solid #3699ff;
+    }
+
+    .form {
+      padding: 0 1.4em;
+    }
+  }
+}
+
+// Custom desktop range
+@include media-breakpoint-between(lg, xl) {
+  // Base
+  .wizard.wizard-2 {
+    // Nav
+    .wizard-nav {
+      flex: 0 0 $wizard-nav-width-sm;
+      width: $wizard-nav-width-sm;
+    }
+  }
+}
+
+// Tablet and mobile mode
+@include media-breakpoint-down(md) {
+  .wizard.wizard-2 {
+    // Nav
+    .wizard-nav {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}

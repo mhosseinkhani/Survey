@@ -1,0 +1,30 @@
+//
+// Sticky Toolbar
+//
+
+.sticky-toolbar {
+  width: 46px;
+  position: fixed;
+  top: 30%;
+  left: 1.1em !important;
+  right: auto;
+  list-style: none;
+  margin: 0;
+  z-index: 50;
+  background: #ffffff;
+  box-shadow: $dropdown-box-shadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @include border-top-left-radius($border-radius);
+  @include border-bottom-left-radius($border-radius);
+
+  .divider {
+    margin: 10px 0;
+    border-bottom: 1px solid $gray-500;
+    width: 100%;
+
+  }
+}

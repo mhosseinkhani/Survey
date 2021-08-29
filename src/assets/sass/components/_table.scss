@@ -1,0 +1,302 @@
+//
+// Table
+//
+.table {
+  thead {
+    th,
+    td {
+      font-weight: $table-head-font-weight;
+      font-size: $table-head-font-size;
+      border-bottom-width: 1px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+  &.table-head-borderless {
+    thead {
+      th,
+      td {
+        border-top: 0;
+      }
+    }
+  }
+  &.table-head-solid {
+    thead {
+      th,
+      td {
+        background-color: $table-head-bg;
+      }
+    }
+  }
+  &.table-light {
+    @each $name, $color in $theme-colors {
+      &-#{$name} {
+        thead {
+          tr {
+            color: $color;
+            background-color: rgba($color, 0.1);
+          }
+        }
+      }
+    }
+  }
+  &.table-head-custom {
+    thead {
+      tr,
+      th {
+        font-weight: $table-compact-head-font-weight;
+        color: $table-compact-head-color !important;
+        font-size: $table-compact-head-font-size;
+        text-transform: $table-compact-head-text-transform;
+        letter-spacing: $table-compact-head-letter-spacing;
+      }
+    }
+  }
+  &.table-foot-custom {
+    tfoot {
+      th,
+      td {
+        font-weight: $table-compact-head-font-weight;
+        color: $table-compact-head-color !important;
+        font-size: $table-compact-head-font-size;
+        text-transform: $table-compact-head-text-transform;
+        letter-spacing: $table-compact-head-letter-spacing;
+      }
+    }
+  }
+  &.table-head-bg {
+    thead {
+      tr,
+      th {
+        background-color: $table-head-bg;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        &:first-child {
+          border-top-left-radius: $border-radius;
+          border-bottom-left-radius: $border-radius;
+        }
+        &:last-child {
+          border-top-right-radius: $border-radius;
+          border-bottom-right-radius: $border-radius;
+        }
+      }
+    }
+  }
+  &.table-foot-bg {
+    tfoot {
+      th,
+      td {
+        border-bottom: 0;
+        background-color: $gray-100;
+        &:first-child {
+          border-top-left-radius: $border-radius;
+          border-bottom-left-radius: $border-radius;
+        }
+        &:last-child {
+          border-top-right-radius: $border-radius;
+          border-bottom-right-radius: $border-radius;
+        }
+      }
+    }
+  }
+  &.table-separate {
+    th,
+    td {
+      border-top: 0;
+      border-bottom: 1px solid $table-border-color;
+      &:first-child {
+        padding-left: 0 !important;
+      }
+      &:last-child {
+        padding-right: 0 !important;
+      }
+    }
+    tfoot {
+      th,
+      td {
+        border-bottom: 0;
+        border-top: 1px solid $table-border-color;
+      }
+    }
+    tbody {
+      tr:last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  &.table-bordered {
+    tfoot {
+      th,
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+  &.table-vertical-center {
+    th,
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+.table:not(.table-bordered) {
+  thead {
+    th,
+    td {
+      border-top: 0;
+    }
+  }
+}
+
+// material table
+table {
+  width: 100%;
+  mat-icon.new {
+    color: green;
+    font-size: 30px !important;
+    vertical-align: text-bottom;
+    margin-top: -15px;
+  }
+  mat-icon.bookmark {
+    color: #3dc3b0;
+    font-size: 30px !important;
+    vertical-align: bottom;
+    margin-top: -5px;
+  }
+  tr.mat-row:nth-child(even) {
+    background: #e2e2e2;
+  }
+}
+
+.row-detail-table {
+  tr.table-detail-row {
+    height: 0;
+  }
+
+  tr.table-element-row:not(.table-expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.table-element-row:not(.table-expanded-row):active {
+    background: #efefef;
+  }
+  .table-element-row td {
+    border-bottom-width: 0;
+  }
+
+  .table-element-detail {
+    overflow: hidden;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    background-color: #f2efef;
+    box-shadow: inset 2px 3px 8px #c1c1c1;
+  }
+  .table-element-detail mat-tab-group.mat-tab-group {
+    width: 100%;
+    margin: 5px;
+  }
+  .table-element-detail mat-tab-group.mat-tab-group mat-tab-header {
+    border-bottom: solid 1px #ccc;
+  }
+  .table-element-detail .mat-tab-label-content i {
+    color: black;
+    font-size: 1.7em;
+    padding: 0 0 0 10px;
+  }
+  .table-element-detail .mat-tab-body-wrapper {
+    min-height: 100px !important;
+  }
+  .table-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+
+  .table-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+
+  .table-element-description {
+    padding: 16px;
+  }
+
+  .table-element-description-attribution {
+    opacity: 0.5;
+  }
+}
+
+// k-table
+table.k-table {
+  background-clip: padding-box;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  outline: 0;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4285714286;
+
+  /* display: inline-table; */
+  /* flex-direction: column; */
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #656565;
+
+  tbody tr {
+    width: 100%;
+
+    td {
+      padding: 8px 12px;
+      border: solid 1px rgba(0, 0, 0, 0.08);
+      border-top: none;
+      border-bottom: none;
+      position: relative;
+      &:first-child {
+        border-right: none;
+      }
+
+      &:last-child {
+        border-left: none;
+      }
+      .exclamation{
+        position: absolute;
+        top: 37%;
+        left: 9%;
+      }
+    }
+
+    &.head {
+      background-color: #f3f3f3;
+
+      td {
+        padding: 8px 12px;
+        border: solid 1px rgba(0, 0, 0, 0.08);
+        border-top: none;
+        font-size: 0.9em;
+
+        &:first-child {
+          border-right: none;
+        }
+
+        &:last-child {
+          border-left: none;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      background-color: whitesmoke;
+    }
+  }
+}
