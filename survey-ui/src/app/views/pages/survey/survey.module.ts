@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { QuestionComponent } from './question/question.componet';
 import { CategoryComponent } from './category/category.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
           path: 'organs',
           component: OrgansComponent,
           data: { returnUrl: window.location.pathname },
-  
+
         },
         {
           path :'period',
@@ -44,7 +45,7 @@ const routes: Routes = [
     },
   ];
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes)],
+    imports: [CommonModule,ReactiveFormsModule,FormsModule, RouterModule.forChild(routes)],
     exports: [SurveyComponent],
     declarations: [SurveyComponent,PeriodComponent,OrgansComponent,QuestionComponent,CategoryComponent,SurveyComponent],
     providers: [],
