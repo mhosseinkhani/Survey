@@ -1,1 +1,49 @@
 will be question list
+
+<div>
+    <div class="body">
+        <!-- begin form -->
+        <div class="create-form">
+            <div>
+                <label>عنوان سوال </label>
+                <input type="text" [(ngModel)]="title">
+            </div>
+            <div>
+                <label><input type="checkbox" [(ngModel)]="isActive"> فعال</label>
+            </div>
+            <button (click)="save()">ذخیره</button>
+
+            <div>
+                preview title:{{title}} isActive:{{isActive}}
+            </div>
+        </div>
+        <!-- end form -->
+        <!-- begin table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>
+                        عنوان
+                    </th>
+                    <th>
+                        وضعیت
+                    </th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data;let i=index">
+                    <td>{{i}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.isActive}}</td>
+                    <td>
+                        <button (click)="edit(item)">Edit</button>
+                        <button (click)="remove(i)">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- end table -->
+    </div>
+</div>

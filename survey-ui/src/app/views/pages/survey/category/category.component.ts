@@ -13,9 +13,11 @@ export class CategoryComponent implements OnInit {
   selectedId: number = 0;
   title: string = '';
   isActive: boolean = false;
+  mehdi : string = '';
 
   constructor() {}
   ngOnInit(): void {
+    //let item of data
     this.data = [
       {
         id: 1,
@@ -41,10 +43,14 @@ export class CategoryComponent implements OnInit {
   }
 
   save() {
-    if (this.isUpdate) {
+    if (this.isUpdate)
+     {
+    
       //
-    } else {
-      this.data.push({ id: 20, isActive: this.isActive, title: this.title });
+    } else
+     {
+
+     this.data.push({ id: 20, isActive: this.isActive, title: this.title });
     }
     this.title = '';
     this.isActive = false;
@@ -58,6 +64,12 @@ export class CategoryComponent implements OnInit {
     this.isActive = item.isActive;
   }
   remove(index: number) {
+
     this.data.splice(index, 1);
+ 
+  }
+  shop(mehdi:string){
+    this.mehdi='alijenab'
+
   }
 }
