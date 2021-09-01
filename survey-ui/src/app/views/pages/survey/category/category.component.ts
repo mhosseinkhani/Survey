@@ -1,4 +1,6 @@
+import { ReturnStatement } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/core/_models/category.model';
 
 @Component({
@@ -13,8 +15,8 @@ export class CategoryComponent implements OnInit {
   selectedId: number = 0;
   title: string = '';
   isActive: boolean = false;
-  mehdi : string = '';
-
+  mehdi: string = '';
+  _formGroup: FormGroup=new FormGroup({}) ;
   constructor() {}
   ngOnInit(): void {
     //let item of data
@@ -40,17 +42,19 @@ export class CategoryComponent implements OnInit {
         isActive: true,
       },
     ];
+
+    //form init
+    this._formGroup = new FormGroup({
+      title: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      isActive: new FormControl(false),
+    });
   }
 
   save() {
-    if (this.isUpdate)
-     {
-    
+    if (this.isUpdate) {
       //
-    } else
-     {
-
-     this.data.push({ id: 20, isActive: this.isActive, title: this.title });
+    } else {
+      this.data.push(this._formGroup.value);
     }
     this.title = '';
     this.isActive = false;
@@ -64,12 +68,13 @@ export class CategoryComponent implements OnInit {
     this.isActive = item.isActive;
   }
   remove(index: number) {
-
     this.data.splice(index, 1);
- 
   }
-  shop(mehdi:string){
-    this.mehdi='alijenab'
+  shop(mehdi: string) {
+    this.mehdi = 'alijenab';
+  }
 
+  mehdi2() {
+    console.log('dknsd');
   }
 }

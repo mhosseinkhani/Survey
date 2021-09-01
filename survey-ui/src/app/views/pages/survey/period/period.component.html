@@ -1,22 +1,60 @@
+<div [formGroup]="_formGroup">
+  <label>نام دوره را وارد کنید</label><br>
+  <input type="text" formControlName='title'>
+  <span
+    *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">این
+    اجباری است</span>
+    <br>
+  <input type="date" formControlName='date'>
+
+  <br>
+  <label>
+    <input type="checkbox" formControlName="check">
+  </label>
+ <br>
+  <select formControlName='selectSth'>
+    <option>
+      lfdjgm
+    </option>
+    <option>
+      lhgfkl
+    </option>
+  </select>
+</div>
+<div>
+  <!-- preview title:{{title}} isActive:{{isActive}} -->
+  {{_formGroup.value|json}}
+  <br>
+  form                     status<br>
+  <pre>Invalid? {{ _formGroup.invalid }}</pre>
+  <pre>valid? {{ _formGroup.valid }}</pre>
+
+</div>
+
+
+
+
+
+
+
 <table>
-    <thead>
-        <tr>
-            <th>شماره</th>
-            <th>نام</th>
-            <th>تاریخ ایجاد</th>
-            <th>وضعیت</th>
-            <th>عملیات</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of data">
-            <th>{{item.id}}</th>
-            <th>{{item.name}}</th>
-            <th>{{item.date}}</th>
-            <th>{{item.status}}</th>
-            <th></th>
-        </tr>
+  <thead>
+    <tr>
+      <th>شماره</th>
+      <th>نام</th>
+      <th>تاریخ ایجاد</th>
+      <th>وضعیت</th>
+      <th>عملیات</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <th>{{item.id}}</th>
+      <th>{{item.name}}</th>
+      <th>{{item.date}}</th>
+      <th>{{item.status}}</th>
+      <th></th>
+    </tr>
 
-
-    </tbody>
+  </tbody>
 </table>

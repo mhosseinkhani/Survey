@@ -3,18 +3,24 @@ its category
 <div>
     <div class="body">
         <!-- begin form -->
-        <div class="create-form">
+        <div class="create-form" [formGroup]="_formGroup">
             <div>
                 <label>عنوان دسته بندی</label>
-                <input type="text" [(ngModel)]="title">
+                <input type="text" formControlName="title">
             </div>
             <div>
-                <label><input type="checkbox" [(ngModel)]="isActive"> فعال</label>
+                <label><input type="checkbox" formControlName="isActive"> فعال</label>
             </div>
-            <button (click)="save()">ذخیره</button>
+            <button (click)="save()" [disabled]="_formGroup.invalid">ذخیره</button>
 
             <div>
-                preview title:{{title}} isActive:{{isActive}}
+                <!-- preview title:{{title}} isActive:{{isActive}} -->
+                {{_formGroup.value|json}}
+                <br>
+                form status<br>
+                <pre>Invalid? {{ _formGroup.invalid }}</pre>
+                <pre>valid? {{ _formGroup.valid }}</pre>
+
             </div>
         </div>
         <!-- end form -->
@@ -49,6 +55,8 @@ its category
     </div>
 </div>
 //<label>خشکبار عالیجناب</label>
-<input type="text" ([(ngModel)]="mehdi">
+<input type="text" [(ngModel)]="mehdi" minlength="5" maxlength="7">
 
 <p>{{mehdi}}</p>
+
+<button (click)="mehdi2()">بزن </button>
