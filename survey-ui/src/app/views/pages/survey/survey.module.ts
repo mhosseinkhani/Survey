@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { QuestionComponent } from './question/question.componet';
 import { CategoryComponent } from './category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SubjectComponent } from './subject/subject.component';
+import { SurveyList, SurveyListComponent } from './survey.list/survey.list.component';
 
 
 const routes: Routes = [
@@ -39,7 +41,11 @@ const routes: Routes = [
         },
         {
           path:'subject',
-          component:SurveyComponent
+          component:SubjectComponent
+        },
+        {
+          path :'surveylist',
+          component : SurveyList
         }
       ],
     },
@@ -47,7 +53,7 @@ const routes: Routes = [
 @NgModule({
     imports: [CommonModule,ReactiveFormsModule,FormsModule, RouterModule.forChild(routes)],
     exports: [SurveyComponent],
-    declarations: [SurveyComponent,PeriodComponent,OrgansComponent,QuestionComponent,CategoryComponent,SurveyComponent],
+    declarations: [SurveyComponent,PeriodComponent,OrgansComponent,QuestionComponent,CategoryComponent,SurveyComponent,SubjectComponent,SurveyListComponent],
     providers: [],
 })
 export class SurveyModule { }

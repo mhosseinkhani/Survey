@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 
 
 
+
 @Component ({
     selector:'survey',
     templateUrl:'./survey.component.html',
@@ -9,5 +10,10 @@ import { Component } from "@angular/core";
 })
 
 export class SurveyComponent {
-    
+
+
+
+
+
+
 }

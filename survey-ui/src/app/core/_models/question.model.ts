@@ -1,6 +1,6 @@
-export interface Question {
-    id:number;
-    title: string;
-    isActive: boolean;
+export interface QuestionModel {
+
+    questionTypeId: number
+    questionTypeTitle: string
   }
-    
+
