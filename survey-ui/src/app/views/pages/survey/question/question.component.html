@@ -1,0 +1,92 @@
+<div [formGroup]="_formGroup">
+    <div class="first-part">
+        <label>عنوان را وارد نمایید</label>
+        <input type="text" formControlName="title">
+        <span *ngIf="(this._formGroup.controls.title.touched || this._formGroup.controls.title.dirty) && this._formGroup.controls.title.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="first-checkbox">
+        <label>وضعیت را مشخص کنید</label>
+        <input type="checkbox" formControlName='checkbox'>
+        <span *ngIf="(this._formGroup.controls.checkbox.touched || this._formGroup.controls.checkbox.dirty)&& this._formGroup.controls.checkbox.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="survey-select">
+        <label>آی دی مرتبط با سنجش را انتخاب کنید</label>
+        <select formControlName='select'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+        <span *ngIf="(this._formGroup.controls.select.touched || this._formGroup.controls.select.dirty) && this._formGroup.controls.select.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="subject-select">
+        <label>آی دی مرتبط با موضوع را انتخاب نمایید</label>
+        <select formControlName='select2'>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+        <span *ngIf="(this._formGroup.controls.select2.touched || this._formGroup.controls.select2.dirty) && this._formGroup.controls.select2.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="questionId-select">
+        <label>آی دی مرتبط با نوع سوال را انتخاب نمایید</label>
+        <select formControlName='select3'>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+        <span *ngIf="(this._formGroup.controls.select3.touched || this._formGroup.controls.select3.dirty) && this._formGroup.controls.select3.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="parameter">
+        <label> فعلا هرچی دوس دارید وارد کنید تا ببینیم چی میشه</label>
+        <input type="text" formControlName='title3'>
+        <span *ngIf="(this._formGroup.controls.title3.touched ||this._formGroup.controls.title.dirty) && this._formGroup.controls.title.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="priority">
+        <label>عدد مورد نظر الویت خود راانتخاب کنید</label>
+        <input type="number" formControlName='title2'>
+        <span *ngIf="(this._formGroup.controls.title2.touched ||this._formGroup.controls.title2.dirty) && this._formGroup.controls.title2.invalid">این فیلد اجباریست</span>
+    </div>
+    <br>
+    <div class="status">
+        <label>پاسخ به این سوال الزامیست</label>
+        <input type="checkbox" formControlName='checkbox2'>
+        <span *ngIf="(this._formGroup.controls.checkbox2.touched || this._formGroup.controls.checkbox2.dirty) && this._formGroup.controls.checkbox2.invalid">این فیلد اجباریست</span>
+    </div>
+    <div>
+        <button (click)="save()" [disabled]="_formGroup.invalid">ثبت</button>
+        <button (click)="_formGroup.reset()">بازسازی</button>
+
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    عنوان
+                </th>
+                <th>
+                    وضعیت
+                </th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data;let i=index">
+                <td>{{i}}</td>
+                <td>{{item.questionTitle}}</td>
+                <td>{{item.isActive}}</td>
+                <td>
+                    <button *ngIf="item.isActive" (click)="edit(item)">ویرایش</button>
+                    <button *ngIf="!item.isActive" (click)="remove(i)">حذف</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,4 @@
-import { ReturnStatement } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/core/_models/category.model';
@@ -53,7 +53,7 @@ export class CategoryComponent implements OnInit {
 
   save() {
     if(!this._formGroup.value.isActive){
-      this.message="Is Active Is Required";
+      this.message="this Active Is Required";
       return;
     }
     if (this.isUpdate) {

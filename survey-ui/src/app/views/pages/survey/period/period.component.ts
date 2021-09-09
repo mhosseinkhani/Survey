@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Period } from 'src/app/core/_models/period.model';
 
+
 @Component({
   selector: 'period',
   templateUrl: './period.component.html',
@@ -47,7 +48,7 @@ export class PeriodComponent {
       title: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(5),
+        Validators.maxLength(20),
       ]),
       date: new FormControl('', [Validators.required]),
       check: new FormControl(false),
@@ -63,8 +64,8 @@ export class PeriodComponent {
 
   edit(item: Period) {
     this._formGroup.patchValue({
-      title:this.title,
-      isActive:this.isActive
+      title: this.title,
+      isActive: this.isActive,
     });
 
     this.isUpdate = true;
@@ -74,5 +75,8 @@ export class PeriodComponent {
       title: item.title,
       isActive: item.isActive,
     });
+  }
+  remove(index: number) {
+    this.data.splice(index, 1);
   }
 }

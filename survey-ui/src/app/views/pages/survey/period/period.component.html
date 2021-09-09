@@ -1,20 +1,19 @@
 <hr>
 <div [formGroup]="_formGroup">
-  <label>نام دوره را وارد کنید</label><br>
-  <input type="text" formControlName='title'>
-  <span
-    *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">این
+    <label>نام دوره را وارد کنید</label><br>
+    <input type="text" formControlName='title'>
+    <span *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">این
     فیلد اجباریست
   </span>
-  <br>
-  <input type="date" formControlName='date'>
+    <br>
+    <input type="date" formControlName='date'>
 
-  <br>
-  <label>
+    <br>
+    <label>
     <input type="checkbox" formControlName="check">
   </label>
-  <br>
-  <select formControlName='selectSth'>
+    <br>
+    <select formControlName='selectSth'>
     <option>
       این
     </option>
@@ -22,44 +21,37 @@
       اون
     </option>
   </select>
-  <button [disabled]="_formGroup.invalid">ثبت</button>
-  <button (click)="_formGroup.reset()">Rest</button>
+    <button [disabled]="_formGroup.invalid">ثبت</button>
+    <button (click)="_formGroup.reset()">Rest</button>
 </div>
 <hr>
 <table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>
-        عنوان
-      </th>
-      <th>
-        وضعیت
-      </th>
-      <th>عملیات</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of data;let i=index">
-      <td>{{i}}</td>
-      <td>{{item.title}}</td>
-      <td>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                عنوان
+            </th>
+            <th>
+                وضعیت
+            </th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data;let i=index">
+            <td>{{i}}</td>
+            <td>{{item.title}}</td>
+            <td>
 
-        <!-- {{item.isActive?'فعال':'غیر فعال'}} -->
-        <span *ngIf="item.isActive">فعال</span>
-        <span *ngIf="!item.isActive">غیر فعال</span>
-      </td>
-      <td>
-        <button (click)="edit(item)">Edit</button>
-      </td>
-    </tr>
-  </tbody>
+                <!-- {{item.isActive?'فعال':'غیر فعال'}} -->
+                <span *ngIf="item.isActive">فعال</span>
+                <span *ngIf="!item.isActive">غیر فعال</span>
+            </td>
+            <td>
+                <button *ngIf="item.isActive" (click)="edit(item)">Edit</button>
+                <button *ngIf="!item.isActive" (click)="remove(i)">Remove</button>
+            </td>
+        </tr>
+    </tbody>
 </table>
-<div>
-  <!-- preview title:{{title}} isActive:{{isActive}} -->
-  {{_formGroup.value|json}}
-  <p> form status</p>
-  <pre>Invalid? {{ _formGroup.invalid }}</pre>
-  <pre>valid? {{ _formGroup.valid }}</pre>
-
-</div>

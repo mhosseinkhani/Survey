@@ -10,16 +10,24 @@ import { Subject } from 'src/app/core/_models/subject.model';
 export class SubjectComponent {
   data: Subject[] = [];
 
-  categoryId: number = 0;
-  title: string = '';
-  isActive: boolean = false;
+  _formGroup = new FormGroup({
+    CategoryId: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required),
+    isActive: new FormControl('', Validators.required),
 
-  _formGroup: FormGroup = new FormGroup({});
+  });
+
   constructor() {
-    this._formGroup = new FormGroup({
-      CategoryId: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
-      isActive: new FormControl('', Validators.required),
-    });
+    this.data = [
+      {
+        id: 1,
+        title: 'دروه اول',
+        date: '1400/01/25',
+        status: 'اتمام',
+        isActive: true,
+      },
+    ];
   }
 }

@@ -1,58 +1,47 @@
 <div [formGroup]='_formGroup'>
-  <label> موضوع خود را وارد نمایید </label>
-  <input type="text" formControlName="title">
+    <label> موضوع خود را وارد نمایید </label>
+    <input type="text" formControlName="title">
 
-  <span
-    *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">
+    <span *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">
     این فیلد اجباریست
     <br>
   </span>
 
-  <input type="checkbox" formControlName="isActive">
-  <span
-    *ngIf="(_formGroup.controls.isActive.touched || _formGroup.controls.isActive.dirty)&& _formGroup.controls.isActive.invalid">
+    <input type="checkbox" formControlName="isActive">
+    <span *ngIf="(_formGroup.controls.isActive.touched || _formGroup.controls.isActive.dirty)&& _formGroup.controls.isActive.invalid">
     این فیلد اجباریست>
   </span>
-  <br>
-  <select formControlName="CategoryId">
+    <br>
+    <select formControlName="CategoryId">
     <option>1</option>
     <option>2</option>
     <option>3</option>
     <option>4</option>
   </select>
-  <span
-    *ngIf="(_formGroup.controls.CategoryId.touched || _formGroup.controls.CategoryId.dirty)&& _formGroup.controls.CategoryId.invalid">
+    <span *ngIf="(_formGroup.controls.CategoryId.touched || _formGroup.controls.CategoryId.dirty)&& _formGroup.controls.CategoryId.invalid">
 
     این فیلد اجباریست
   </span>
 </div>
 <br>
 <table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>
-        عنوان
-      </th>
-      <th>
-        وضعیت
-      </th>
-      <th>عملیات</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of data;let i=index">
-      <td>{{i}}</td>
-      <td>{{item.title}}</td>
-      <td>{{item.isActive}}</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                عنوان
+            </th>
+            <th>
+                وضعیت
+            </th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data;let i=index">
+            <td>{{i}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.isActive}}</td>
+        </tr>
+    </tbody>
 </table>
-<br>
-
-<div>
-  {{_formGroup.value|json}}
-  <p>form status</p>
-  <pre> valid? {{_formGroup.valid}}</pre>
-  <pre> invalid? {{_formGroup.invalid}}</pre>
-</div>

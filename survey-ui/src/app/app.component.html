@@ -1,15 +1,15 @@
 layout main
 <ul>
-  <li>
-    <a [routerLink]="'/survey/category'">دسته بندی ها</a>
-  </li>
+    <li>
+        <a [routerLink]="'/survey/category'">دسته بندی ها</a>
+    </li>
 
-  <li>
-    <a>سازمان ها</a>
-  </li>
+    <li>
+        <a [routerLink]="'./survey/organs'">سازمان ها</a>
+    </li>
 
-  <li>
-    <a>دوره ها</a>
-  </li>
+    <li>
+        <a [routerLink]="'./survey/period'">دوره ها</a>
+    </li>
 </ul>
 <router-outlet></router-outlet>

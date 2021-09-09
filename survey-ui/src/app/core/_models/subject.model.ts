@@ -1,5 +1,7 @@
 export interface Subject {
-    title : string ;
-    isActive : boolean;
-    CategoryId : Number 
+  id: number;
+  title: string;
+  date:string;
+  status:string;
+  isActive: boolean;
 }
