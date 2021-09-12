@@ -12,7 +12,7 @@ export class QuestionComponent {
   _formGroup: FormGroup = new FormGroup({});
   message: string = '';
   selectedId: number = 0;
-  isUpdated: boolean = false;
+  isUpdate: boolean = false;
   constructor() {}
   ngOnInit(): void {
     this.data = [
@@ -29,7 +29,7 @@ export class QuestionComponent {
       },
       {
         questionTitle: '',
-        isActive: false,
+        isActive: true,
         surveyId: 1,
         subjectId: 1,
         questionTypeId: 1,
@@ -52,30 +52,32 @@ export class QuestionComponent {
     ];
 
     this._formGroup = new FormGroup({
-     title:new FormControl('',Validators.required),
-     title2:new FormControl('',Validators.required),
-     title3:new FormControl('',Validators.required),
-     checkbox:new FormControl(Validators.required),
-     checkbox2:new FormControl(Validators.required),
-     select: new FormControl('', Validators.required),
-     select2:new FormControl('',Validators.required),
-     select3:new FormControl('',Validators.required),
+      questionTitle:new FormControl('',Validators.required),
+      questionParameters:new FormControl('',Validators.required),
+      priority:new FormControl('',Validators.required),
+     isActive:new FormControl(Validators.required),
+     isRequired:new FormControl(Validators.required),
+     surveyId: new FormControl('', Validators.required),
+     subjectId:new FormControl('',Validators.required),
+     questionTypeId:new FormControl('',Validators.required),
     });
   }
+
   save() {
-    if (!this._formGroup.value.isActive) {
-      this.message = 'this Active Is Required';
+    if(this._formGroup.invalid){
+      this.message="this Active Is Required";
       return;
     }
-    if (this.isUpdated) {
+    if (this.isUpdate) {
+      //
     } else {
-      this.data.push(this._formGroup.value);
+      this.data.push(this._formGroup.value
+        );
     }
-    this.isUpdated = false;
-    this.selectedId = 0;
-  }
+    this.isUpdate = false;
+    this.selectedId = 0;}
   edit(item: QuestionModel) {
-    this.isUpdated = true;
+    this.isUpdate= true;
     this.selectedId = item.surveyId;
     //patch
     this._formGroup.patchValue({

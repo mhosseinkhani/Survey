@@ -6,6 +6,7 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./views/pages/auth/auth.module').then((a) => a.AuthModule),
+
   },
   {
     path :'survey',
