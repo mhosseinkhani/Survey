@@ -2,18 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-const API_LOGIN =environment.BASEURL+'UserManagement/User/Manager/login';
+import { LoginResponse } from '../_models/auth/login.model';
+const API_LOGIN = environment.BASEURL + 'UserManagement/User/Manager';
+
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  login(userName: string, password: string):Observable<any> {
-    return this.http.post(
-     API_LOGIN,
-      {
-        userName: userName,
-        password: password,
-      }
-    );
+  login(userName: string, password: string): Observable<LoginResponse> {
+    const api_url = API_LOGIN + '/login';
+
+    return this.http.post<LoginResponse>(api_url, {
+      userName,
+      password,
+    });
   }
 }

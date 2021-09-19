@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASEURL:"https://simorghnew.simorgh34000.com/"
+  BASEURL:"https://simorghnew.simorgh34000.com/",
+  AuthKey:"token-key"
 };
 
 /*

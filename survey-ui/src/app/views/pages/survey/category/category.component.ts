@@ -1,46 +1,28 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Category } from 'src/app/core/_models/category.model';
+import { CategoryService } from 'src/app/core/services/category.service';
+import { CategoryModel } from 'src/app/core/_models/category.model';
 
 @Component({
   selector: 'category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
+  providers: [CategoryService],
 })
 export class CategoryComponent implements OnInit {
-  data: Category[] = [];
+  data: CategoryModel[] = [];
 
   isUpdate: boolean = false;
   selectedId: number = 0;
   message: string = '';
   _formGroup: FormGroup = new FormGroup({});
-  constructor() {}
+  constructor(private service: CategoryService) {}
   ngOnInit(): void {
     //let item of data
-    this.data = [
-      {
-        id: 1,
-        title: 'دسته بندی یکم',
-        isActive: false,
-      },
-      {
-        id: 2,
-        title: 'دسته بندی دوم',
-        isActive: true,
-      },
-      {
-        id: 3,
-        title: 'دسته بندی سوم',
-        isActive: false,
-      },
-      {
-        id: 4,
-        title: 'دسته بندی چهارم',
-        isActive: true,
-      },
-    ];
-
+    this.data = [];
+    this.service.loadList().subscribe((response) => {
+      this.data = response;
+    });
     //form init
     this._formGroup = new FormGroup({
       title: new FormControl('', [
@@ -52,8 +34,8 @@ export class CategoryComponent implements OnInit {
   }
 
   save() {
-    if(!this._formGroup.value.isActive){
-      this.message="this Active Is Required";
+    if (!this._formGroup.value.isActive) {
+      this.message = 'this Active Is Required';
       return;
     }
     if (this.isUpdate) {
@@ -64,12 +46,12 @@ export class CategoryComponent implements OnInit {
     this.isUpdate = false;
     this.selectedId = 0;
   }
-  edit(item: Category) {
+  edit(item: CategoryModel) {
     this.isUpdate = true;
     this.selectedId = item.id;
     //patch
     this._formGroup.patchValue({
-      title: item.title,
+      title: item.categoryTitle,
       isActive: item.isActive,
     });
   }

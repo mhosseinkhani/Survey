@@ -1,18 +1,18 @@
 <!--begin::Signin-->
 <div class="login-form login-signin">
-    <!--begin::Form-->
-    <form class="form" [formGroup]="loginForm" novalidate="novalidate" id="kt_login_signin_form" (ngSubmit)="submit()">
-        <!--begin::Title-->
-        <div class="pb-13 pt-lg-0 pt-5">
-            <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
-                به سامانه سنجش و نگرش خوش آمدید
-            </h3>
+  <!--begin::Form-->
+  <form class="form" [formGroup]="loginForm" novalidate="novalidate" id="kt_login_signin_form" (ngSubmit)="submit()">
+    <!--begin::Title-->
+    <div class="pb-13 pt-lg-0 pt-5">
+      <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
+        به سامانه سنجش و نگرش خوش آمدید
+      </h3>
 
-        </div>
-        <!--end::Title-->
+    </div>
+    <!--end::Title-->
 
-        <!-- begin::Alert info-->
-        <!-- <ng-container *ngIf="!hasError">
+    <!-- begin::Alert info-->
+    <!-- <ng-container *ngIf="!hasError">
             <div class="mb-10 alert alert-custom alert-light-info alert-dismissible">
                 <div class="alert-text">
                     Use account <strong>{{ defaultAuth.email }}</strong> and password
@@ -20,91 +20,91 @@
                 </div>
             </div>
         </ng-container> -->
-        <!-- end::Alert info-->
+    <!-- end::Alert info-->
 
-        <!-- begin::Alert error-->
-        <ng-container *ngIf="hasError">
-            <div class="mb-10 alert alert-custom alert-light-danger alert-dismissible">
-                <div class="alert-text">اطلاعات ورودی اشتباه است</div>
-            </div>
-        </ng-container>
-        <!-- end::Alert error-->
+    <!-- begin::Alert error-->
+    <ng-container *ngIf="hasError">
+      <div class="mb-10 alert alert-custom alert-light-danger alert-dismissible">
+        <div class="alert-text">اطلاعات ورودی اشتباه است</div>
+      </div>
+    </ng-container>
+    <!-- end::Alert error-->
 
-        <!--begin::Form group-->
-        <div class="form-group">
-            <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری</label>
-            <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="email" formControlName="email" autocomplete="off" [ngClass]="{ 'is-invalid': loginForm.controls['email'].invalid }" />
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+    <!--begin::Form group-->
+    <div class="form-group">
+      <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری</label>
+      <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="text" name="userName"
+        formControlName="userName" autocomplete="off" [ngClass]="{ 'is-invalid': loginForm.controls['userName'].invalid }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: 'وارد کردن نام کاربری اجباریست',
-          control: loginForm.controls['email']
+          control: loginForm.controls['userName']
         }"></ng-container>
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
-          validation: 'email',
-          message: 'نام کاربری نامعتبر است',
-          control: loginForm.controls['email']
-        }"></ng-container>
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'minLength',
           message: 'نام کاربری باید حداقل 3 کارکتر باشد',
-          control: loginForm.controls['email']
+          control: loginForm.controls['userName']
         }"></ng-container>
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'maxLength',
           message: 'نام کاربری باید کمتر از 360 کارکتر باشد',
-          control: loginForm.controls['email']
+          control: loginForm.controls['userName']
         }"></ng-container>
-        </div>
-        <!--end::Form group-->
+    </div>
+    <!--end::Form group-->
 
-        <!--begin::Form group-->
-        <div class="form-group">
-            <div class="d-flex justify-content-between mt-n5">
-                <label class="font-size-h6 font-weight-bolder text-dark pt-5">رمز ورورد</label>
+    <!--begin::Form group-->
+    <div class="form-group">
+      <div class="d-flex justify-content-between mt-n5">
+        <label class="font-size-h6 font-weight-bolder text-dark pt-5">رمز ورورد</label>
 
-            </div>
+      </div>
 
-            <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="password" name="password" autocomplete="off" formControlName="password" [ngClass]="{ 'is-invalid': loginForm.controls['password'].invalid }" />
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+      <input class="form-control form-control-solid h-auto py-7 px-6 rounded-lg" type="password" name="password"
+        autocomplete="off" formControlName="password"
+        [ngClass]="{ 'is-invalid': loginForm.controls['password'].invalid }" />
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'required',
           message: 'واردکردن رمز اجباریست',
           control: loginForm.controls['password']
         }"></ng-container>
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'minlength',
           message: 'رمز شما باید حداقل 3 کارکتر باشد',
           control: loginForm.controls['password']
         }"></ng-container>
-            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+      <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
           validation: 'maxLength',
           message: 'رمز شما باید کمتر از 100 کارکتر باشد',
           control: loginForm.controls['password']
         }"></ng-container>
-        </div>
-        <!--end::Form group-->
+    </div>
+    <!--end::Form group-->
 
-        <!--begin::Action-->
-        <div class="pb-lg-0 pb-5">
-            <button type="submit" id="kt_login_signin_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3" [disabled]="loginForm.invalid">
+    <!--begin::Action-->
+    <div class="pb-lg-0 pb-5">
+      <button type="submit" id="kt_login_signin_submit"
+        class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3" [disabled]="loginForm.invalid || isLoading$">
         ورود
       </button>
 
-            <ng-container *ngIf="isLoading$">
-                <span class="spinner spinner-primary ml-5"></span>
-            </ng-container>
-        </div>
-        <!--end::Action-->
-    </form>
-    <!--end::Form-->
+      <ng-container *ngIf="isLoading$">
+        <span class="spinner spinner-primary ml-5"></span>
+      </ng-container>
+    </div>
+    <!--end::Action-->
+  </form>
+  <!--end::Form-->
 </div>
 <!--end::Signin-->
 
 <ng-template #formError let-control="control" let-message="message" let-validation="validation">
-    <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
-        <div class="fv-plugins-message-container">
-            <div class="fv-help-block">
-                {{ message }}
-            </div>
-        </div>
-    </ng-container>
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
 </ng-template>

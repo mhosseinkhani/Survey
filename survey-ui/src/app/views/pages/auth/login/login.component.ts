@@ -1,3 +1,4 @@
+import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -8,6 +9,11 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
+import {
+  LoginModel,
+  LoginResponse,
+} from 'src/app/core/_models/auth/login.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -16,19 +22,15 @@ import { UserService } from 'src/app/core/services/user.service';
   providers: [UserService],
 })
 export class LoginComponent implements OnInit {
-  // KeenThemes mock, change it to:
-  // defaultAuth = {
-  //   email: '',
-  //   password: '',
-  // };
-  defaultAuth: any = {
-    email: 'admin@demo.com',
-    password: 'demo',
+  defaultAuth: LoginModel = {
+    userName: 'admin',
+    password: '123456',
   };
-  loginForm: FormGroup=new FormGroup({});
-  hasError: boolean=false;
-  returnUrl: string="";
-  isLoading$:boolean=false;
+
+  loginForm: FormGroup = new FormGroup({});
+  hasError: boolean = false;
+  returnUrl: string = 'survey';
+  isLoading$: boolean = false;
 
   // private fields
 
@@ -59,8 +61,8 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.loginForm = this.fb.group({
-      email: [
-        this.defaultAuth.email,
+      userName: [
+        this.defaultAuth.userName,
         Validators.compose([
           Validators.required,
           Validators.minLength(3),
@@ -79,18 +81,20 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading$ = true;
     this.hasError = false;
     const loginSubscr = this.authService
-      .login(this.f.email.value, this.f.password.value)
-       .subscribe((user: any) => {
+      .login(this.f.userName.value, this.f.password.value)
+      .subscribe((user: LoginResponse) => {
         if (user) {
+          window.localStorage.setItem(environment.AuthKey, user.accessToken);
           this.router.navigate([this.returnUrl]);
         } else {
           this.hasError = true;
         }
+        this.isLoading$ = false;
       });
-   }
+  }
 
-  ngOnDestroy() {
-   }
+  ngOnDestroy() {}
 }

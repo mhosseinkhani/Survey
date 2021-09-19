@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  BASEURL:"https://simorghnew.simorgh34000.com/",
+  AuthKey:"token-key"
 };

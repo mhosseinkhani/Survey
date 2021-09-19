@@ -1,5 +1,6 @@
-export interface Category {
+export interface CategoryModel {
   id:number;
-  title: string;
+  categoryTitle: string;
   isActive: boolean;
+  ownerUserId:number;
 }

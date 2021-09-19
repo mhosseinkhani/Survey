@@ -6,7 +6,6 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./views/pages/auth/auth.module').then((a) => a.AuthModule),
-
   },
   {
     path :'survey',
@@ -22,6 +21,10 @@ const routes: Routes = [
     path :'reports',
     loadChildren:()=>
     import('./views/pages/user/user.module').then((a)=> a.UserModule),
+  },
+  {
+    path:'**',
+    redirectTo:'auth'
   }
 ];
 

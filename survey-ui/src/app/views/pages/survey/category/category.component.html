@@ -45,7 +45,7 @@ its category
             <tbody>
                 <tr *ngFor="let item of data;let i=index">
                     <td>{{i}}</td>
-                    <td>{{item.title}}</td>
+                    <td>{{item.categoryTitle}}</td>
                     <td>{{item.isActive}}</td>
                     <td>
                         <button *ngIf="item.isActive" (click)="edit(item)">Edit</button>
