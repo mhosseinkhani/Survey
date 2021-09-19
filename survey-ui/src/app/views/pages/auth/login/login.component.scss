@@ -1,0 +1,32 @@
+    .loginForm {
+        padding-top: 80px;
+    }
+
+    .survey {
+        color: #b12ade;
+        padding-right: 25px;
+    }
+
+    input#userName {
+        border-radius: 5px;
+        border: none;
+        background-color: #d3f3f5;
+        width: 60%;
+    }
+
+    input#Password {
+        border: none;
+        border-radius: 5px;
+        background-color: #d3f3f5;
+        width: 63%;
+        margin-right: -4px;
+    }
+
+    .form-group {
+        padding-top: 16px;
+    }
+
+    label.plz {
+        font-size: 14px;
+        color: gray;
+    }

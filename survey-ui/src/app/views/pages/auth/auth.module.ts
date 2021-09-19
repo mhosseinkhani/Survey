@@ -1,9 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import { ForgotPasswordComponent } from './forgotPassword/forgot.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CarouselModule } from 'angular-bootstrap-md';
+import { CardsModule } from 'angular-bootstrap-md';
 
 const routes: Routes = [
   {
@@ -19,20 +24,28 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent,
         data: { returnUrl: window.location.pathname },
-
       },
       {
-        path :'forgot',
+        path: 'forgot',
         component: ForgotPasswordComponent,
-      }
+      },
     ],
   },
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    // MDBBootstrapModule.forRoot(),
+    CarouselModule.forRoot(),
+    CardsModule,
+  ],
   exports: [AuthComponent],
-  declarations: [AuthComponent, LoginComponent,ForgotPasswordComponent],
+  declarations: [AuthComponent, LoginComponent, ForgotPasswordComponent],
   providers: [],
 })
 export class AuthModule {

@@ -1,3 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "./app/views/pages/auth/auth.component.scss"
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+// @import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+@import "node_modules/angular-bootstrap-md/assets/scss/mdb.scss";
+@import "./assets/iran-sans/font.css";
+html {
+    font-family: 'IRANSans';
+    body {
+        font-family: 'IRANSans';
+    }
+}

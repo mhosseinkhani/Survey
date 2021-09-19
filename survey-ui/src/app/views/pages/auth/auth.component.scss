@@ -1,3 +1,47 @@
-.auth-page {
-    background-color: #eee;
+.info-part {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 70%;
+}
+
+.first-info {
+    text-align: center;
+    padding-top: 50px;
+    color: wheat;
+}
+
+.companies {
+    padding-top: 50px;
+}
+
+.imgs {
+    border-radius: 10px;
+}
+
+.left-part {
+    padding-top: 50px;
+}
+
+.contact_us {
+    padding-top: 30px;
+}
+
+.contact-number {
+    padding-top: 15px;
+}
+
+img.right-Part {
+    width: 23%;
+    flex-direction: row;
+}
+
+.carousel .carousel-indicators li {
+    background: #fff;
+    opacity: 0.5;
+}
+
+.carousel .carousel-indicators li.active {
+    opacity: 1 !important;
 }
