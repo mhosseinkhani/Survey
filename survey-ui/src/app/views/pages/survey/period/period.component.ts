@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Period } from 'src/app/core/_models/period.model';
+import { PeriodService } from 'src/app/core/services/period.service';
+import { PeriodModel } from 'src/app/core/_models/survey/period.model';
 
 
 @Component({
@@ -9,40 +10,31 @@ import { Period } from 'src/app/core/_models/period.model';
   styleUrls: ['./period.component.scss'],
 })
 export class PeriodComponent {
-  data: Period[] = [];
-  title: string = '';
-  isActive: boolean = false;
-  message: string = '';
-  isUpdate: boolean = false;
-  selectedId: number = 0;
+  data: PeriodModel[] = [];
+  _formGroup: FormGroup = new FormGroup({});
+  title:string= '';
+  isActive:boolean= false;
+  ownerUserId:number= 0 ;
+  isScheduled:boolean= false;
+  startOn:Date=new Date();
+  finishOn:Date=new Date();
+  characterRecognitionSurveyId:number=  0 ;
+  attitudeSurveyId:number= 0;
+  loginUrl:string='';
+  periodStateId:number=0;
+  message:string='';
+  isUpdate:boolean=false;
+  selectedId:number=0;
+
+
+
+
 
   /**
    *
    */
-  _formGroup: FormGroup = new FormGroup({});
-  constructor() {
+  constructor (private service: PeriodService) {
     this.data = [
-      {
-        id: 1,
-        title: 'دروه اول',
-        date: '1400/01/25',
-        status: 'اتمام',
-        isActive: true,
-      },
-      {
-        id: 2,
-        title: 'دروه دوم',
-        date: '1400/02/25',
-        status: 'اتمام',
-        isActive: false,
-      },
-      {
-        id: 3,
-        title: 'دروه سوم',
-        date: '1400/03/25',
-        status: 'اتمام',
-        isActive: false,
-      },
     ];
     this._formGroup = new FormGroup({
       title: new FormControl('', [
@@ -50,9 +42,15 @@ export class PeriodComponent {
         Validators.minLength(3),
         Validators.maxLength(20),
       ]),
-      date: new FormControl('', [Validators.required]),
-      check: new FormControl(false),
-      selectSth: new FormControl('', Validators.required),
+      isActive: new FormControl('', [Validators.required]),
+      ownerUserId: new FormControl('',Validators.required),
+      isScheduled: new FormControl('false'),
+      startOn:new FormControl('',Validators.required),
+      finishOn:new FormControl('',Validators.required),
+      characterRecognitionSurveyId:new FormControl('',Validators.required),
+      attitudeSurveyId:new FormControl('',Validators.required),
+      loginUrl:new FormControl('',Validators.required),
+      periodStateId:new FormControl('',Validators.required),
     });
   }
   save() {
@@ -62,14 +60,13 @@ export class PeriodComponent {
     }
   }
 
-  edit(item: Period) {
+  edit(item: PeriodModel) {
     this._formGroup.patchValue({
       title: this.title,
       isActive: this.isActive,
     });
-
     this.isUpdate = true;
-    this.selectedId = item.id;
+    this.selectedId = item.ownerUserId;
     //patch
     this._formGroup.patchValue({
       title: item.title,
@@ -80,3 +77,4 @@ export class PeriodComponent {
     this.data.splice(index, 1);
   }
 }
+

@@ -1,6 +1,4 @@
 import { Component, NgModule } from '@angular/core';
-import { OrgansComponent } from './organs/orgons.component';
-import { PeriodComponent } from './period/period.component';
 import { SurveyComponent } from './survey.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -10,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubjectComponent } from './subject/subject.component';
 import { SurveyListComponent } from './survey.list/survey.list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PeriodComponent } from './period/period.component';
 
 const routes: Routes = [
   {
@@ -18,13 +17,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'organs',
         pathMatch: 'full',
-      },
-      {
-        path: 'organs',
-        component: OrgansComponent,
-        data: { returnUrl: window.location.pathname },
       },
       {
         path: 'period',
@@ -59,13 +52,12 @@ const routes: Routes = [
   exports: [SurveyComponent],
   declarations: [
     SurveyComponent,
-    PeriodComponent,
-    OrgansComponent,
     QuestionComponent,
     CategoryComponent,
     SurveyComponent,
     SubjectComponent,
     SurveyListComponent,
+    PeriodComponent
   ],
   providers: [],
 })

@@ -3,7 +3,6 @@ import { Component, ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
-import { ForgotPasswordComponent } from './forgotPassword/forgot.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -25,10 +24,7 @@ const routes: Routes = [
         component: LoginComponent,
         data: { returnUrl: window.location.pathname },
       },
-      {
-        path: 'forgot',
-        component: ForgotPasswordComponent,
-      },
+
     ],
   },
 ];
@@ -45,7 +41,7 @@ const routes: Routes = [
     CardsModule,
   ],
   exports: [AuthComponent],
-  declarations: [AuthComponent, LoginComponent, ForgotPasswordComponent],
+  declarations: [AuthComponent, LoginComponent],
   providers: [],
 })
 export class AuthModule {

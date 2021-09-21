@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { QuestionService } from 'src/app/core/services/question.service';
 import { QuestionModel } from 'src/app/core/_models/question.model';
 
 @Component({
@@ -13,42 +15,10 @@ export class QuestionComponent {
   message: string = '';
   selectedId: number = 0;
   isUpdate: boolean = false;
-  constructor() {}
+  constructor(private service : QuestionService) {}
   ngOnInit(): void {
     this.data = [
-      {
-        questionTitle: '',
-        isActive: false,
-        surveyId: 0,
-        subjectId: 0,
-        questionTypeId: 0,
-        questionParameters: 'سنجش سازمان 1',
-        priority: 0,
-        isRequired: false,
-        questionItems: [],
-      },
-      {
-        questionTitle: '',
-        isActive: true,
-        surveyId: 1,
-        subjectId: 1,
-        questionTypeId: 1,
-        questionParameters: 'سنجش سازمان 2',
-        priority: 0,
-        isRequired: true,
-        questionItems: [],
-      },
-      {
-        questionTitle: '',
-        isActive: false,
-        surveyId: 2,
-        subjectId: 2,
-        questionTypeId: 2,
-        questionParameters: 'سنجش سازمان 3',
-        priority: 0,
-        isRequired: true,
-        questionItems: [],
-      },
+
     ];
 
     this._formGroup = new FormGroup({
