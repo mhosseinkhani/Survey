@@ -1,29 +1,5 @@
-<div [formGroup]='_formGroup'>
-    <label> موضوع خود را وارد نمایید </label>
-    <input type="text" formControlName="title">
-
-    <span *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">
-    این فیلد اجباریست
-    <br>
-  </span>
-
-    <input type="checkbox" formControlName="isActive">
-    <span *ngIf="(_formGroup.controls.isActive.touched || _formGroup.controls.isActive.dirty)&& _formGroup.controls.isActive.invalid">
-    این فیلد اجباریست>
-  </span>
-    <br>
-    <select formControlName="CategoryId">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-  </select>
-    <span *ngIf="(_formGroup.controls.CategoryId.touched || _formGroup.controls.CategoryId.dirty)&& _formGroup.controls.CategoryId.invalid">
-
-    این فیلد اجباریست
-  </span>
-</div>
-<br>
+<hr>
+<a [routerLink]="['/survey/category/edit']">Add New Item</a>
 <table>
     <thead>
         <tr>
@@ -42,6 +18,16 @@
             <td>{{i}}</td>
             <td>{{item.title}}</td>
             <td>{{item.isActive}}</td>
+            <td>{{item.categoryId}}</td>
+            <td>
+                <!-- {{item.isActive?'فعال':'غیر فعال'}} -->
+                <span *ngIf="item.isActive">فعال</span>
+                <span *ngIf="!item.isActive">غیر فعال</span>
+            </td>
+            <td>
+                <a *ngIf="item.isActive" [routerLink]="['/survey/category/edit']" [queryParams]="{id:item.id}">Edit</a>
+                <button (click)="remove(item.id)">Remove</button>
+            </td>
         </tr>
     </tbody>
 </table>

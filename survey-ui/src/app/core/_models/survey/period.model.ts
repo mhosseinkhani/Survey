@@ -1,8 +1,9 @@
 export interface PeriodModel{
+  id?:number,
   title: string,
-  isActive: true,
+  isActive: boolean,
   ownerUserId:number ,
-  isScheduled: true,
+  isScheduled: boolean,
   startOn:Date,
   finishOn:Date,
   characterRecognitionSurveyId:number ,

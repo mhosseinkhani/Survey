@@ -1,0 +1,87 @@
+<a [routerLink]="['/survey/period']">بازگشت</a>
+<p>
+    {{message}}
+</p>
+<div [formGroup]="_formGroup">
+    <div class="form-group">
+        <label>نام دوره را وارد کنید</label><br>
+        <input type="text" formControlName='title'>
+        <span *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" formControlName='isActive'>
+        <span *ngIf="_formGroup.controls.isActive.touched&& _formGroup.controls.isActive.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>کاربر مدیر</label><br>
+        <select formControlName='ownerUserId'>
+      <option *ngFor="let data of userList" value="{{data.id}}">{{data.title}}</option>
+    </select>
+        <span *ngIf="(_formGroup.controls.ownerUserId.touched || _formGroup.controls.ownerUserId.dirty)&& _formGroup.controls.ownerUserId.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+
+        <input type="checkbox" formControlName='isScheduled'>
+        <span *ngIf="_formGroup.controls.isScheduled.touched&& _formGroup.controls.isScheduled.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>تاریخ شروع دوره را وارد کنید</label><br>
+        <input type="datetime" formControlName='startOn'>
+        <span *ngIf="(_formGroup.controls.startOn.touched || _formGroup.controls.startOn.dirty)&& _formGroup.controls.startOn.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>تاریخ پایان دوره را وارد کنید</label><br>
+        <input type="datetime" formControlName='finishOn'>
+        <span *ngIf="(_formGroup.controls.finishOn.touched || _formGroup.controls.finishOn.dirty)&& _formGroup.controls.finishOn.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>باید بپرسم از مهندس محمودی</label><br>
+        <select formControlName='characterRecognitionSurveyId'>
+      <option *ngFor="let data of characterRecognitionSurveyList" value="{{data.id}}">{{data.title}}</option>
+    </select>
+        <span *ngIf="(_formGroup.controls.characterRecognitionSurveyId.touched || _formGroup.controls.characterRecognitionSurveyId.dirty)&& _formGroup.controls.characterRecognitionSurveyId.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+
+        <label>باید بپرسم از مهندس محمودی</label><br>
+        <select formControlName='periodStateId'>
+      <option *ngFor="let data of periodStateList" value="{{data.id}}">{{data.title}}</option>
+    </select>
+
+        <span *ngIf="(_formGroup.controls.periodStateId.touched || _formGroup.controls.periodStateId.dirty)&& _formGroup.controls.periodStateId.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>آدرس ورود</label><br>
+        <input type="text" formControlName='loginUrl'>
+        <span *ngIf="(_formGroup.controls.loginUrl.touched || _formGroup.controls.loginUrl.dirty)&& _formGroup.controls.loginUrl.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>شناسه وضعیت</label><br>
+        <select formControlName='attitudeSurveyId'>
+      <option *ngFor="let data of attitudeSurveyList" value="{{data.id}}">{{data.title}}</option>
+    </select>
+        <span *ngIf="(_formGroup.controls.attitudeSurveyId.touched || _formGroup.controls.attitudeSurveyId.dirty)&& _formGroup.controls.attitudeSurveyId.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <button (click)="save()" [disabled]="_formGroup.invalid">ثبت</button>
+    <button (click)="_formGroup.reset()">Rest</button>
+</div>

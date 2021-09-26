@@ -1,96 +1,5 @@
 <hr>
-<div [formGroup]="_formGroup">
-    <label>نام دوره را وارد کنید</label><br>
-    <input type="text" formControlName='title'>
-    <span *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-    <input type="checkbox" formControlName='isActive'>
-    <span *ngIf="_formGroup.controls.isActive.touched&& _formGroup.controls.isActive.invalid">این
-      فیلد اجباریست
-    </span>
-
-    <br>
-    <label>کاربر مدیر</label><br>
-    <select formControlName='ownerUserId'>
-      <option>{{ownerUserId}}</option>
-      <option>{{ownerUserId}}</option>
-      <option>{{ownerUserId}}</option>
-    </select>
-    <span *ngIf="(_formGroup.controls.ownerUserId.touched || _formGroup.controls.ownerUserId.dirty)&& _formGroup.controls.ownerUserId.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-
-    <input type="checkbox" formControlName='isScheduled'>
-    <span *ngIf="_formGroup.controls.isScheduled.touched&& _formGroup.controls.isScheduled.invalid">این
-      فیلد اجباریست
-    </span>
-    <br>
-    <label>تاریخ شروع دوره را وارد کنید</label><br>
-    <input type="datetime" formControlName='startOn'>
-    <span *ngIf="(_formGroup.controls.startOn.touched || _formGroup.controls.startOn.dirty)&& _formGroup.controls.startOn.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-    <label>تاریخ پایان دوره را وارد کنید</label><br>
-    <input type="datetime" formControlName='finishOn'>
-    <span *ngIf="(_formGroup.controls.finishOn.touched || _formGroup.controls.finishOn.dirty)&& _formGroup.controls.finishOn.invalid">این
-  فیلد اجباریست
-</span>
-    <br>
-    <label>کاربر مدیر</label><br>
-    <select formControlName='ownerUserId'>
-      <option>{{ownerUserId}}</option>
-      <option>{{ownerUserId}}</option>
-      <option>{{ownerUserId}}</option>
-    </select>
-    <span *ngIf="(_formGroup.controls.ownerUserId.touched || _formGroup.controls.ownerUserId.dirty)&& _formGroup.controls.ownerUserId.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-    <label>باید بپرسم از مهندس محمودی</label><br>
-    <select formControlName='characterRecognitionSurveyId'>
-      <option>{{characterRecognitionSurveyId}}</option>
-      <option>{{characterRecognitionSurveyId}}</option>
-      <option>{{characterRecognitionSurveyId}}</option>
-    </select>
-    <span *ngIf="(_formGroup.controls.characterRecognitionSurveyId.touched || _formGroup.controls.characterRecognitionSurveyId.dirty)&& _formGroup.controls.characterRecognitionSurveyId.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-    <br>
-    <label>باید بپرسم از مهندس محمودی</label><br>
-    <select formControlName='attitudeSurveyId'>
-      <option>{{attitudeSurveyId}}</option>
-      <option>{{attitudeSurveyId}}</option>
-      <option>{{attitudeSurveyId}}</option>
-    </select>attitudeSurveyId
-    <span *ngIf="(_formGroup.controls.attitudeSurveyId.touched || _formGroup.controls.attitudeSurveyId.dirty)&& _formGroup.controls.attitudeSurveyId.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-    <label>آدرس ورود</label><br>
-    <input type="text" formControlName='loginUrl'>
-    <span *ngIf="(_formGroup.controls.loginUrl.touched || _formGroup.controls.loginUrl.dirty)&& _formGroup.controls.loginUrl.invalid">این
-    فیلد اجباریست
-  </span>
-    <br>
-    <br>
-    <label>شناسه وضعیت</label><br>
-    <select formControlName='attitudeSurveyId'>
-    <option>{{attitudeSurveyId}}</option>
-    <option>{{attitudeSurveyId}}</option>
-    <option>{{attitudeSurveyId}}</option>
-  </select>
-    <span *ngIf="(_formGroup.controls.attitudeSurveyId.touched || _formGroup.controls.attitudeSurveyId.dirty)&& _formGroup.controls.attitudeSurveyId.invalid">این
-  فیلد اجباریست
-</span>
-    <button [disabled]="_formGroup.invalid">ثبت</button>
-    <button (click)="_formGroup.reset()">Rest</button>
-</div>
-<hr>
+<a [routerLink]="['/survey/period/create']">Add New Item</a>
 <table>
     <thead>
         <tr>
@@ -108,14 +17,16 @@
         <tr *ngFor="let item of data;let i=index">
             <td>{{i}}</td>
             <td>{{item.title}}</td>
+            <td>{{item.isScheduled}}</td>
+            <td>{{item.startOn}}</td>
+            <td>{{item.finishOn}}</td>
             <td>
-
                 <!-- {{item.isActive?'فعال':'غیر فعال'}} -->
                 <span *ngIf="item.isActive">فعال</span>
                 <span *ngIf="!item.isActive">غیر فعال</span>
             </td>
             <td>
-                <button *ngIf="item.isActive" (click)="edit(item)">Edit</button>
+                <a *ngIf="item.isActive" [routerLink]="['/survey/period/create', {id:item.id}]">Edit</a>
                 <button *ngIf="!item.isActive" (click)="remove(i)">Remove</button>
             </td>
         </tr>

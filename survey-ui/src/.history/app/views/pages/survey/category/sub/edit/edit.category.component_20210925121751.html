@@ -1,0 +1,22 @@
+<a [routerLink]="['/subject/edit']">بازگشت</a>
+<p>
+    {{message}}
+</p>
+<div [formGroup]="_formGroup">
+    <div class="form-group">
+        <label>نام دوره را وارد کنید</label><br>
+        <input type="text" formControlName='title'>
+        <span *ngIf="(_formGroup.controls.title.touched || _formGroup.controls.title.dirty)&& _formGroup.controls.title.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" formControlName='isActive'>
+        <span *ngIf="_formGroup.controls.isActive.touched&& _formGroup.controls.isActive.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+
+    <button (click)="save()" [disabled]="_formGroup.invalid">ثبت</button>
+    <button (click)="_formGroup.reset()">Rest</button>
+</div>

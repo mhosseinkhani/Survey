@@ -1,0 +1,33 @@
+<hr>
+<a [routerLink]="['/survey/category/edit']">Add New Item</a>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                عنوان
+            </th>
+            <th>
+                وضعیت
+            </th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data;let i=index">
+            <td>{{i}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.isActive}}</td>
+            <td>{{item.CategoryId}}</td>
+            <td>
+                <!-- {{item.isActive?'فعال':'غیر فعال'}} -->
+                <span *ngIf="item.isActive">فعال</span>
+                <span *ngIf="!item.isActive">غیر فعال</span>
+            </td>
+            <td>
+                <a *ngIf="item.isActive" [routerLink]="['/survey/category/edit']" [queryParams]="{id:item.id}">Edit</a>
+                <button (click)="remove(item.id)">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

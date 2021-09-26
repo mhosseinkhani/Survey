@@ -1,0 +1,53 @@
+<a [routerLink]="['/survey/editSurvey']">بازگشت</a>
+<p>
+    {{message}}
+</p>
+<div [formGroup]="_formGroup">
+    <div class="form-group">
+        <label>نام دوره را وارد کنید</label><br>
+        <input type="text" formControlName='surveyTitle'>
+        <span *ngIf="(_formGroup.controls.surveyTitle.touched || _formGroup.controls.surveyTitle.dirty)&& _formGroup.controls.surveyTitle.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" formControlName='isActive'>
+        <span *ngIf="_formGroup.controls.isActive.touched&& _formGroup.controls.isActive.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+
+    <div class="form-group">
+        <label>نام دوره را وارد کنید</label><br>
+        <select formControlName='surveyType'>
+<option >1</option>
+<option >2</option>
+<option >3</option>
+
+</select>
+
+        <span *ngIf="(_formGroup.controls.surveyType.touched || _formGroup.controls.surveyType.dirty)&& _formGroup.controls.surveyType.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label> آی دی  را وارد کنید</label><br>
+        <input type="datetime" formControlName='id'>
+        <span *ngIf="(_formGroup.controls.id.touched || _formGroup.controls.id.dirty)&& _formGroup.controls.id.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <div class="form-group">
+        <label>   آی دی را وارد نمایید
+
+        </label><br>
+        <select formControlName='categoryId'>
+      <option *ngFor="let data of characterRecognitionSurveyList" value="{{data.id}}">{{data.title}}</option>
+    </select>
+        <span *ngIf="(_formGroup.controls.categoryId.touched || _formGroup.controls.categoryId.dirty)&& _formGroup.controls.categoryId.invalid">این
+      فیلد اجباریست
+    </span>
+    </div>
+    <button (click)="save()" [disabled]="_formGroup.invalid">ثبت</button>
+    <button (click)="_formGroup.reset()">Rest</button>
+</div>

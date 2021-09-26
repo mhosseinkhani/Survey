@@ -1,60 +1,33 @@
-its category
-
-<div>
-    <div class="body">
-        <hr> {{message}}
-        <!-- begin form -->
-        <div class="create-form" [formGroup]="_formGroup">
-            <div>
-                <label>عنوان دسته بندی</label>
-                <input type="text" formControlName="title">
-            </div>
-            <div>
-                <label><input type="checkbox" formControlName="isActive"> فعال</label>
-            </div>
-            <button (click)="save()" [disabled]="_formGroup.invalid">ذخیره</button>
-            <button (click)="_formGroup.reset()">RESET</button>
-            <button>ثبت</button>
-            <div>
-                <!-- preview title:{{title}} isActive:{{isActive}} -->
-                <!-- {{_formGroup.value|json}}
-        <br>
-        form status<br>
-        <pre>Invalid? {{ _formGroup.invalid }}</pre>
-        <pre>valid? {{ _formGroup.valid }}</pre> -->
-
-            </div>
-        </div>
-        <hr>
-
-        <!-- end form -->
-        <!-- begin table -->
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>
-                        عنوان
-                    </th>
-                    <th>
-                        وضعیت
-                    </th>
-                    <th>عملیات</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of data;let i=index">
-                    <td>{{i}}</td>
-                    <td>{{item.categoryTitle}}</td>
-                    <td>{{item.isActive}}</td>
-                    <td>
-                        <button *ngIf="item.isActive" (click)="edit(item)">Edit</button>
-                        <button *ngIf="!item.isActive" (click)="remove(i)">X</button>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- end table -->
-    </div>
-</div>
+<hr>
+<a [routerLink]="['/survey/category/edit']">Add New Item</a>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>
+                عنوان
+            </th>
+            <th>
+                وضعیت
+            </th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data;let i=index">
+            <td>{{i}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.categoryTitle}}</td>
+            <td>{{item.isActive}}</td>
+            <td>
+                <!-- {{item.isActive?'فعال':'غیر فعال'}} -->
+                <span *ngIf="item.isActive">فعال</span>
+                <span *ngIf="!item.isActive">غیر فعال</span>
+            </td>
+            <td>
+                <a *ngIf="item.isActive" [routerLink]="['/survey/category/edit']" [queryParams]="{id:item.id}">Edit</a>
+                <button (click)="remove(item.id)">Remove</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

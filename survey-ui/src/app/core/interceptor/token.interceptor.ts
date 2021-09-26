@@ -15,7 +15,6 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    debugger;
 
     const token = window.localStorage.getItem(environment.AuthKey);
     if (token)

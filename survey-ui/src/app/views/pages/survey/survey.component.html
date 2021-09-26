@@ -1,1 +1,22 @@
- <router-outlet></router-outlet>
+<div>
+    <ul>
+        <li>
+            <a [routerLink]="['/survey/period']" routerLinkActive="router-link-active">period</a>
+        </li>
+        <li>
+            <a [routerLink]="['/survey/question']" routerLinkActive="router-link-active">question</a>
+        </li>
+        <li>
+            <a [routerLink]="['/survey/category']" routerLinkActive="router-link-active">category</a>
+        </li>
+        <li>
+            <a [routerLink]="['/survey/subject']" routerLinkActive="router-link-active">subject</a>
+        </li>
+        <li>
+            <a [routerLink]="['/survey/surveylist']" routerLinkActive="router-link-active">surveylist</a>
+        </li>
+
+    </ul>
+</div>
+<hr>
+<router-outlet></router-outlet>

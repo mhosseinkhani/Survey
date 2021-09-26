@@ -1,7 +1,7 @@
-export interface SurveyList{
-surveyTitle: string ,
-  surveyType:string ,
-  ownerUserId:number ,
-  isActive: boolean,
-  categoryId: number
+export interface SurveyListModel{
+  id: number,
+  categoryId:number,
+  categoryTitle:string,
+  isActive:boolean,
+  title:string
 }
